@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/page_counter.dart';
-import 'package:flutter_application_4/page_demo.dart';
+import 'package:flutter_app/pages/pages.dart';
+
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget{
-  MyApp({super.key});
+  const MyApp({super.key});
  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MyApp',
-      home: DemoScreen(),
-      debugShowCheckedModeBanner: false,      
+      title: 'MyApp',      
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.light(),      
+      initialRoute: 'home',
+      routes: {
+        'home': (context) => const HomePage(),
+        'design': (context) => const DesignPage(),
+        'listview': (context) => const ListViewPage(),
+        'listviewbuilder': (context) => const ListBuilderPage(),
+        'demo': (context) => const DemoPage(),
+        'counter': (context) => const CounterPage(),
+        'container': (context) => const ContainerPage(),
+      },
     );    
   }  
 

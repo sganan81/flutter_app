@@ -1,24 +1,37 @@
 import 'package:flutter/material.dart';
 
-class DemoScreen extends StatelessWidget {
+import '../widgets/widgets.dart';
+
+class DemoPage extends StatelessWidget {
    
-  const DemoScreen({super.key});
+  const DemoPage({super.key});
   
   @override
   Widget build(BuildContext context) {
+
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(     
+      appBar: AppBar(
+        title: const Text('Demo Page'),
+      ),
+      drawer: const DrawerMenu(),
       body: SingleChildScrollView(
         child: Center(
            child: Column(
               children: [                
                   FadeInImage(
-                      placeholder: AssetImage('assets/loading.gif'), 
-                      image: NetworkImage('https://i.blogs.es/1aad84/marvel/1366_521.jpeg'),                    
+                      placeholder: const AssetImage('assets/loading.gif'), 
+                      image: const NetworkImage('https://i.blogs.es/1aad84/marvel/1366_521.jpeg'),
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: size.height * 0.35,
                   ),
                   Container(
                     color: Colors.black12,
-                    margin: EdgeInsets.all(20),
-                    padding: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
+                    height: size.height * 0.12,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -26,41 +39,41 @@ class DemoScreen extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                            children: const[
                               Text('Titulo de prueba principal', style: TextStyle(fontWeight: FontWeight.bold )),
                               SizedBox(height: 5),
                               Text('Subtítulo de prueba'),
                             ],
                           ),
                         ),
-                        Icon(Icons.star_outline),
-                        Text('50')
+                        const Icon(Icons.star_outline),
+                        const Text('50')
                       ],
                     ),
                   ),
                   Container(
                     color: Colors.black12,
-                    margin: EdgeInsets.symmetric(horizontal: 20),
-                    padding: EdgeInsets.symmetric(vertical: 20),
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Column(
-                          children: [
+                          children: const[
                             Icon(Icons.phone),
                             SizedBox(height: 5),
                             Text('CALL'),
                           ],
                         ),
                         Column(
-                          children: [
+                          children: const[
                             Icon(Icons.telegram),
                             SizedBox(height: 5),
                             Text('ROUTE'),
                           ],
                         ),
                         Column(
-                          children: [
+                          children: const[
                             Icon(Icons.share),
                             SizedBox(height: 5),
                             Text('SHARE'),
@@ -71,8 +84,8 @@ class DemoScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.all(20),
-                    child: Text('Non nisi sint nostrud laborum cillum ut labore veniam. Laboris ullamco dolor fugiat deserunt cupidatat ipsum sit amet in elit consectetur magna aliquip consectetur. Quis velit do in ea commodo tempor tempor mollit. Non in labore enim consectetur nulla incididunt nisi quis laborum do nostrud nostrud. Amet commodo mollit magna incididunt incididunt reprehenderit non. Reprehenderit esse quis nisi minim consectetur qui eu pariatur proident sint. Sint commodo sit aute duis enim culpa ad cupidatat in.')
+                    margin: const EdgeInsets.all(20),
+                    child: const Text('Non nisi sint nostrud laborum cillum ut labore veniam. Laboris ullamco dolor fugiat deserunt cupidatat ipsum sit amet in elit consectetur magna aliquip consectetur. Quis velit do in ea commodo tempor tempor mollit. Non in labore enim consectetur nulla incididunt nisi quis laborum do nostrud nostrud. Amet commodo mollit magna incididunt incididunt reprehenderit non. Reprehenderit esse quis nisi minim consectetur qui eu pariatur proident sint. Sint commodo sit aute duis enim culpa ad cupidatat in.')
                     )
               ]
             ),

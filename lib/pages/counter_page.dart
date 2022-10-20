@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widgets/widgets.dart';
 
-class CounterScreen extends StatefulWidget {
+class CounterPage extends StatefulWidget {
 
 
-  CounterScreen({super.key});
+  const CounterPage({super.key});
 
   @override
-  State<CounterScreen> createState() => _CounterScreenState();
+  State<CounterPage> createState() => _CounterStatePage();
 }
 
-class _CounterScreenState extends State<CounterScreen> {
+class _CounterStatePage extends State<CounterPage> {
   int _counter = 10;
 
   @override
@@ -20,6 +21,7 @@ class _CounterScreenState extends State<CounterScreen> {
         title: const Text('Counter App'),
         elevation: 10,
       ),
+      drawer: const DrawerMenu(),
       body: Center(
         child: Column(
            mainAxisAlignment: MainAxisAlignment.center,
@@ -31,45 +33,45 @@ class _CounterScreenState extends State<CounterScreen> {
                         fontWeight: FontWeight.bold
                       ),
                   ),
-              Text('Cantidad de clicks: $_counter', style: TextStyle(fontSize: 21),),              
+              Text('Cantidad de clicks: $_counter', style: const TextStyle(fontSize: 21),),              
           ],
         ),
       ),
       floatingActionButton: Container(
         color: Colors.black12,
-        padding: EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20),
       
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             FloatingActionButton(
+              heroTag: 'fab_minus',
               onPressed: () {                 
                 setState(() {
-                  _counter--;
-                  print('-1: $_counter');
+                  _counter--;                  
                 });
               },
-              child: Icon(Icons.exposure_minus_1),
+              child: const Icon(Icons.exposure_minus_1),
 
             ),
             FloatingActionButton(
+              heroTag: 'fab_reset',
               onPressed: () { 
                 setState(() {
-                  _counter = 0;
-                  print('reset: $_counter');
+                  _counter = 0;                  
                 });
               },
-              child: Icon(Icons.restore),
+              child: const Icon(Icons.restore),
 
             ),
             FloatingActionButton(
+              heroTag: 'fab_plus',
               onPressed: () { 
                 setState(() {
-                  _counter++;
-                  print('+1: $_counter');                  
+                  _counter++;                  
                 });
               },
-              child: Icon(Icons.plus_one_outlined),
+              child: const Icon(Icons.plus_one_outlined),
 
             ),
           ],
