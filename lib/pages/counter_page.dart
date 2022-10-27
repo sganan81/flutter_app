@@ -24,7 +24,7 @@ class _CounterStatePage extends State<CounterPage> {
       drawer: const DrawerMenu(),
       body: Center(
         child: Column(
-           mainAxisAlignment: MainAxisAlignment.center,
+           mainAxisAlignment: MainAxisAlignment.center,           
            children: [
               const Text( 
                     'Usted ha realizado los siguientes clicks:', 
@@ -36,13 +36,18 @@ class _CounterStatePage extends State<CounterPage> {
               Text('Cantidad de clicks: $_counter', style: const TextStyle(fontSize: 21),),              
           ],
         ),
-      ),
-      floatingActionButton: Container(
-        color: Colors.black12,
-        padding: const EdgeInsets.symmetric(vertical: 20),
-      
+      ),   
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,   
+      floatingActionButton: Container(                
+        width: 330, 
+        decoration: BoxDecoration(
+          color: Colors.green.shade50,
+          borderRadius: BorderRadius.circular(15),          
+        ),            
+        margin: const EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.all(10),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,        
           children: [
             FloatingActionButton(
               heroTag: 'fab_minus',
@@ -52,7 +57,7 @@ class _CounterStatePage extends State<CounterPage> {
                 });
               },
               child: const Icon(Icons.exposure_minus_1),
-
+      
             ),
             FloatingActionButton(
               heroTag: 'fab_reset',
@@ -62,7 +67,7 @@ class _CounterStatePage extends State<CounterPage> {
                 });
               },
               child: const Icon(Icons.restore),
-
+      
             ),
             FloatingActionButton(
               heroTag: 'fab_plus',
@@ -72,7 +77,7 @@ class _CounterStatePage extends State<CounterPage> {
                 });
               },
               child: const Icon(Icons.plus_one_outlined),
-
+      
             ),
           ],
         ),

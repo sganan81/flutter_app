@@ -14,6 +14,7 @@ class DrawerMenu extends StatelessWidget {
           const _DrawerHeader(),          
           ListTile(
             title: const Text('Home'),
+            subtitle: const Text('Home con un counter app'),
             leading: const Icon(Icons.double_arrow_outlined),
             onTap: () {
               Navigator.pushReplacementNamed(context, 'home');
@@ -60,6 +61,13 @@ class DrawerMenu extends StatelessWidget {
             },
           ),
           const Divider(height: 5),
+          ListTile(
+            title: const Text('Cards'),
+            leading: const Icon(Icons.double_arrow_outlined),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, 'card');
+            },
+          ),
         ],
       ),
     );
