@@ -1,3 +1,4 @@
+export 'package:flutter_app/pages/qr_page.dart';
 export 'package:flutter_app/pages/container_page.dart';
 export 'package:flutter_app/pages/counter_page.dart';
 export 'package:flutter_app/pages/demo_page.dart';

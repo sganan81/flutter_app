@@ -12,7 +12,7 @@ class ListBuilderPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('ListView Builder Page'),
       ),
-      drawer: const DrawerMenu(),
+      drawer: DrawerMenu(),
       body: ListView.separated(
         itemBuilder: (_, index) {
          return const ListTile(

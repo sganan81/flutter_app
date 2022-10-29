@@ -12,7 +12,7 @@ class ListViewPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('ListView'),
       ),
-      drawer: const DrawerMenu(),
+      drawer: DrawerMenu(),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: [

@@ -1,74 +1,130 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/themes/default_theme.dart';
 
 class DrawerMenu extends StatelessWidget {
-  
-  const DrawerMenu({super.key});
+  final List<Map<String,String>> _menuItems = <Map<String,String>>[
+    {'route':'home','title':'Homess','subtitle':'Home + counter app'},
+    {'route':'counter','title':'Counter','subtitle':''},
+    {'route':'design','title':'Diseño','subtitle':''},
+    {'route':'listview','title':'ListView','subtitle':''},
+    {'route':'listviewbuilder','title':'ListView Builder','subtitle':''},
+    {'route':'container','title':'Animated Container','subtitle':''},
+    {'route':'card','title':'Cards','subtitle':''},
+    {'route':'qr_scanner','title':'QR Scanner','subtitle':''},
+  ];
+
+  DrawerMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
+      child: ListView(        
+        padding: EdgeInsets.zero,        
         children: [
-          const _DrawerHeader(),          
-          ListTile(
-            title: const Text('Home'),
-            subtitle: const Text('Home con un counter app'),
-            leading: const Icon(Icons.double_arrow_outlined),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, 'home');
-            },
-          ),
-          const Divider(height: 5),
-          ListTile(
-            title: const Text('Counter'),
-            leading: const Icon(Icons.double_arrow_outlined),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, 'counter');
-            },
-          ),
-          const Divider(height: 5),
-          ListTile(
-            title: const Text('Diseño'),
-            leading: const Icon(Icons.double_arrow_outlined),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, 'design');
-            },
-          ),
-          const Divider(height: 5),
-          ListTile(
-            title: const Text('ListView'),
-            leading: const Icon(Icons.double_arrow_outlined),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, 'listview');
-            },
-          ),
-          const Divider(height: 5),
-          ListTile(
-            title: const Text('ListView Builder'),
-            leading: const Icon(Icons.double_arrow_outlined),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, 'listviewbuilder');
-            },
-          ),
-          const Divider(height: 5),
-          ListTile(
-            title: const Text('Animated Container'),
-            leading: const Icon(Icons.double_arrow_outlined),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, 'container');
-            },
-          ),
-          const Divider(height: 5),
-          ListTile(
-            title: const Text('Cards'),
-            leading: const Icon(Icons.double_arrow_outlined),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, 'card');
-            },
-          ),
+          const _DrawerHeaderAlternative(),          
+          ...ListTile.divideTiles(
+            context: context,
+            tiles: _menuItems.map(
+              (item) => ListTile(
+                  contentPadding: const EdgeInsets.symmetric(
+                      vertical: 0, 
+                      horizontal: 10
+                    ),
+                    dense: true,
+                  minLeadingWidth: 25,                  
+                  iconColor: Colors.blueGrey,
+                  title: Text(item['title']!, style: const TextStyle(fontFamily: 'FuzzyBubbles')),
+                  subtitle: Text(item['subtitle'] ?? '', style: const TextStyle(fontFamily: 'RobotoMono', fontSize: 11)),
+                  leading: const Icon(Icons.arrow_right ),
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, item['route']!);
+                  },
+              )
+            ).toList()
+          )          
         ],
+      ),
+    );
+  }
+}
+
+class _DrawerHeaderAlternative extends StatelessWidget {
+  const _DrawerHeaderAlternative({
+    Key? key,
+  }) : super(key: key);
+
+  
+  @override
+  Widget build(BuildContext context) {
+    return DrawerHeader(  
+      padding: EdgeInsets.zero,               
+      child: Stack(
+        children: [
+          Positioned(
+            top: -10,
+            child: Container(            
+              width: 130,
+              height: 130,
+              decoration: BoxDecoration(
+                color: Colors.blueAccent.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(10)              
+              ),
+              transform: Matrix4.rotationZ(0.6),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 140,
+            child: Container(            
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                color: Colors.redAccent.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(10)              
+              ),
+              transform: Matrix4.rotationZ(0.9),
+            ),
+          ),
+          Positioned(
+            top: 30,
+            right: 35,            
+            child: Container(            
+              width: 35,
+              height: 35,
+              decoration: BoxDecoration(
+                color: Colors.amber.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(10)              
+              ),
+              transform: Matrix4.rotationZ(0.9),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            right: 30,
+            child: Container(            
+              width: 20,
+              height: 20,             
+              decoration: BoxDecoration(
+                color: DefaultTheme.primary.withOpacity(0.4),
+                borderRadius: BorderRadius.circular(5)
+              ),
+            ),
+          ),
+          Container(        
+            alignment: Alignment.bottomRight,
+            padding: const EdgeInsets.symmetric(horizontal: 10), 
+            child: const Text(
+                          '[  Menu  ]',                           
+                          style: TextStyle(                                  
+                                  fontSize: 13,
+                                  color:Colors.black54,                                  
+                                  fontFamily: 'RobotoMono'
+                                ),
+                          textAlign: TextAlign.right,                    
+                        ),
+          ),
+        ]
       ),
     );
   }
@@ -94,7 +150,7 @@ class _DrawerHeader extends StatelessWidget {
         child: const Text(
                       '[  Menu  ]', 
                       style: TextStyle(
-                              color: Colors.indigoAccent,                    
+                              color: DefaultTheme.primary,                    
                               fontSize: 19
                             ),
                       textAlign: TextAlign.right,                    

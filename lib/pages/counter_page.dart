@@ -21,7 +21,7 @@ class _CounterStatePage extends State<CounterPage> {
         title: const Text('Counter App'),
         elevation: 10,
       ),
-      drawer: const DrawerMenu(),
+      drawer: DrawerMenu(),
       body: Center(
         child: Column(
            mainAxisAlignment: MainAxisAlignment.center,           

@@ -15,7 +15,7 @@ class DemoPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Demo Page'),
       ),
-      drawer: const DrawerMenu(),
+      drawer: DrawerMenu(),
       body: SingleChildScrollView(
         child: Center(
            child: Column(

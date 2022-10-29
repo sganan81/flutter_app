@@ -44,7 +44,7 @@ class _ContainerStatePage extends State<ContainerPage> {
       appBar: AppBar(
         title: const Text('Container Page'),
       ),
-      drawer: const DrawerMenu(),
+      drawer: DrawerMenu(),
       body: Center(
          child: AnimatedContainer(
             duration: const Duration(milliseconds: 800 ),

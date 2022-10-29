@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/themes/default_theme.dart';
 
 class CardImage extends StatelessWidget {
-  const CardImage({super.key});
+  final String urlImage;
+  final String? captionImage;
+
+  const CardImage({super.key, 
+    required this.urlImage, 
+    this.captionImage
+    }
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -9,29 +17,29 @@ class CardImage extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10),
       child: Card(
         clipBehavior: Clip.antiAlias,      
-        shadowColor: Colors.green.withOpacity(0.7),
+        shadowColor: DefaultTheme.primary.withOpacity(0.7),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10)
         ),
         elevation: 10,
         child: Column(children: [
-          const FadeInImage(
-            placeholder: AssetImage('assets/images/loading.gif'), 
-            image: NetworkImage('https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
+          FadeInImage(
+            placeholder: const AssetImage('assets/images/loading.gif'), 
+            image: NetworkImage(urlImage),
             fit: BoxFit.cover,
             width: double.infinity,
             height: 250,
-            fadeInDuration: Duration(milliseconds: 600),
+            fadeInDuration: const Duration(milliseconds: 600),
           ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            alignment: Alignment.bottomLeft,
-            child: const Text(
-              'Creditos: image con un texto que supera las 2 lineas',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-          )
+          if(captionImage != null)
+            Container(              
+              padding: const EdgeInsets.all(10),
+              alignment: Alignment.bottomLeft,
+              child: Text(captionImage ?? 'No caption',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            )
         ]),
       ),
     );

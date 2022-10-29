@@ -13,7 +13,7 @@ class CardPage extends StatelessWidget {
         title: const Text('Card Page'),
         elevation: 10,
       ),
-      drawer: const DrawerMenu(),
+      drawer: DrawerMenu(),
       body: ListView(        
         padding: const EdgeInsets.symmetric(
           horizontal: 10,   
@@ -21,13 +21,13 @@ class CardPage extends StatelessWidget {
         ),
         children: const[
           CardBasic(),          
-          CardImage(),
-          CardImage(),
-          CardImage(),
-          CardImage(),
-          CardImage(),
-          CardImage(),
-          CardImage(),
+          CardImage(urlImage:'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',captionImage: 'Caption Image 1'),
+          CardImage(urlImage:'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',captionImage: 'Caption Image 2'),
+          CardImage(urlImage:'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
+          CardImage(urlImage:'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
+          CardImage(urlImage:'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'),
+          CardImage(urlImage:'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',captionImage: 'Caption Image 6'),
+          CardImage(urlImage:'https://images.unsplash.com/photo-1505159940484-eb2b9f2588e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',captionImage: 'Caption Image 7'),
         ],
       ),
     );

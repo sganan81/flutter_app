@@ -12,7 +12,7 @@ class DesignPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Diseño Page'),
       ),
-      drawer: const DrawerMenu(),   
+      drawer: DrawerMenu(),   
       body: SafeArea(
         top: false,
         child: Center(
