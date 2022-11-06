@@ -12,6 +12,9 @@ class DrawerMenu extends StatelessWidget {
     {'route':'container','title':'Animated Container','subtitle':''},
     {'route':'card','title':'Cards','subtitle':''},
     {'route':'qr_scanner','title':'QR Scanner','subtitle':''},
+    {'route':'custom_list','title':'Custom List','subtitle':''},
+    {'route':'card_swiper','title':'Swiper List','subtitle':''},
+
   ];
 
   DrawerMenu({super.key});
@@ -62,7 +65,7 @@ class _DrawerHeaderAlternative extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            top: -10,
+            top: -90,
             child: Container(            
               width: 130,
               height: 130,
@@ -70,7 +73,7 @@ class _DrawerHeaderAlternative extends StatelessWidget {
                 color: Colors.blueAccent.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(10)              
               ),
-              transform: Matrix4.rotationZ(0.6),
+              transform: Matrix4.rotationZ(0.2),
             ),
           ),
           Positioned(
