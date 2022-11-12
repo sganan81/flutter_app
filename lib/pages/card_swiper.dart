@@ -6,7 +6,14 @@ class CardSwiperPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(      
+    return Scaffold(   
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.transparent,
+        child: const Icon(Icons.arrow_back, ),
+        onPressed: () {
+         Navigator.pushReplacementNamed(context, 'home');
+      },),       
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -60,7 +67,7 @@ class CardBody extends StatelessWidget {
 
 class CardSwiper extends StatelessWidget {
 
-  final List _cast_movies = <Map<String,String>>[
+  final List _castMovies = <Map<String,String>>[
     {'image':'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/86jeYFV40KctQMDQIWhJ5oviNGj.jpg','actor':'Emilia Clarke','name':'Daenerys Targaryen','duration':'80 episodios'},
     {'image':'https://www.themoviedb.org/t/p/w138_and_h175_face/htGBMno71BJAEGF3Y9f62MdA3Yt.jpg','actor':'Kit Harington','name':'Jon Snow','duration':'80 episodios'},
     {'image':'https://www.themoviedb.org/t/p/w138_and_h175_face/lRsRgnksAhBRXwAB68MFjmTtLrk.jpg','actor':'Peter Dinklage','name':'Tyrion Lannister','duration':'79 episodios'},
@@ -78,14 +85,14 @@ class CardSwiper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 320,       
       child:Column(
         crossAxisAlignment: CrossAxisAlignment.start,        
         children: [
           const Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: Text('Cards inferior', 
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -99,7 +106,7 @@ class CardSwiper extends StatelessWidget {
               shrinkWrap:true,
               scrollDirection: Axis.horizontal, 
               physics: const BouncingScrollPhysics(),              
-              itemCount: _cast_movies.length,
+              itemCount: _castMovies.length,
               itemBuilder: (context, index) {
                 return Card(
                   child: Container(                  
@@ -114,20 +121,20 @@ class CardSwiper extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                           child: FadeInImage(
                             placeholder: const AssetImage('assets/images/loading.gif'), 
-                            image: NetworkImage(_cast_movies[index]['image']),
+                            image: NetworkImage(_castMovies[index]['image']),
                             width: 140,
                             height: 160,
                             fit: BoxFit.cover,
                         
                           ),
                         ),
-                        Text(_cast_movies[index]['actor'], 
-                          style: TextStyle(fontSize: 17),
+                        Text(_castMovies[index]['actor'], 
+                          style: const TextStyle(fontSize: 17),
                         ),
                         const SizedBox(height: 5,),
-                        Text(_cast_movies[index]['name']),
+                        Text(_castMovies[index]['name']),
                         const SizedBox(height: 15,),
-                        Text(_cast_movies[index]['duration']),
+                        Text(_castMovies[index]['duration']),
                       ],
                     ),
                   ),
@@ -147,11 +154,11 @@ class CardPoster extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return const SizedBox(
       width: double.infinity,
       height: 400,      
       child: 
-              const FadeInImage(
+              FadeInImage(
                 placeholder: AssetImage('assets/images/loading.gif'), 
                 image: NetworkImage('https://www.themoviedb.org/t/p/w600_and_h900_bestv2/z9gCSwIObDOD2BEtmUwfasar3xs.jpg'),                  
                 fit: BoxFit.fill,

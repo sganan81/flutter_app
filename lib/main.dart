@@ -29,8 +29,11 @@ class MyApp extends StatelessWidget{
         'container': (context) => const ContainerPage(),
         'card': (context) => const CardPage(),
         'qr_scanner':(context) => const QrScannerPage(),
-        'custom_list':(context) => CustomListPage(),
+        'custom_list':(context) => const CustomListPage(),
         'card_swiper':(context) => const CardSwiperPage(),
+        'form_page':(context) => const FormPage(),
+        'pageview':(context) => PageViewPage(),
+        'slivers':(context) => const SliversPage(),        
       },
     );    
   }  

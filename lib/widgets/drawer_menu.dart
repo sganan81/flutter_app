@@ -14,6 +14,9 @@ class DrawerMenu extends StatelessWidget {
     {'route':'qr_scanner','title':'QR Scanner','subtitle':''},
     {'route':'custom_list','title':'Custom List','subtitle':''},
     {'route':'card_swiper','title':'Swiper List','subtitle':''},
+    {'route':'form_page','title':'Form inputs','subtitle':''},
+    {'route':'slivers','title':'Slivers','subtitle':''},
+    {'route':'pageview','title':'Pagevie','subtitle':''},
 
   ];
 

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/themes/default_theme.dart';
 
 import '../widgets/widgets.dart';
 
 class CustomListPage extends StatefulWidget {
 
-  CustomListPage({super.key});
+  const CustomListPage({super.key});
 
   @override
   State<CustomListPage> createState() => _CustomListPageState();
@@ -29,7 +28,7 @@ class _CustomListPageState extends State<CustomListPage> {
   ];
   double _opacityLevel = 0;
 
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   
   @override
   void initState() {
@@ -55,7 +54,7 @@ class _CustomListPageState extends State<CustomListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Custom List'),
+        title: const Text('Custom List'),
       ),
       drawer: DrawerMenu(),
       body: Padding(
@@ -64,14 +63,14 @@ class _CustomListPageState extends State<CustomListPage> {
           opacity: _opacityLevel,
           duration: const Duration(milliseconds: 900),
           child: ListView.builder(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             controller: _scrollController,
             itemCount: _elements.length,
             itemBuilder: (context, index) {
               return Container(            
                 height: 90,
                 margin: const EdgeInsets.only(bottom: 10),
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),              
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),              
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
@@ -109,7 +108,9 @@ class _CustomListPageState extends State<CustomListPage> {
                               fontWeight: FontWeight.w600
                             ),
                           ),
-                          Text(_elements[index][2], style: TextStyle(fontSize: 14),),
+                          Text(_elements[index][2], 
+                            style: const TextStyle(fontSize: 14),
+                          ),
                         ],
                       ),
                     ),

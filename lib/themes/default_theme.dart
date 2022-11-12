@@ -28,6 +28,20 @@ class DefaultTheme{
         listTileTheme: const ListTileThemeData(
           iconColor: primary
         ),        
+        inputDecorationTheme: InputDecorationTheme(
+          floatingLabelStyle: TextStyle(color: primary),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: primary)
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: primary)
+          ),          
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),            
+          ),
+        )
       );
   static final ThemeData darkTheme = ThemeData.dark().copyWith(
         primaryColor: Colors.greenAccent,

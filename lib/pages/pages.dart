@@ -1,3 +1,11 @@
+
+
+export 'package:flutter_app/pages/slivers_page.dart';
+
+export 'package:flutter_app/pages/pageview_page.dart';
+
+export 'package:flutter_app/pages/form_page.dart';
+
 export 'package:flutter_app/pages/card_swiper.dart';
 
 export 'package:flutter_app/pages/custom_list_page.dart';
@@ -10,6 +18,8 @@ export 'package:flutter_app/pages/home_page.dart';
 export 'package:flutter_app/pages/listbuilder_page.dart';
 export 'package:flutter_app/pages/listview_page.dart';
 export 'package:flutter_app/pages/card_page.dart';
+
+
 
 
 
