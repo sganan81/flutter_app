@@ -17,6 +17,7 @@ class DrawerMenu extends StatelessWidget {
     {'route':'form_page','title':'Form inputs','subtitle':''},
     {'route':'slivers','title':'Slivers','subtitle':''},
     {'route':'pageview','title':'Pagevie','subtitle':''},
+    {'route':'profile','title':'Profile','subtitle':'shared_prefrences'},
 
   ];
 

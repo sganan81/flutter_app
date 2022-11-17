@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/pages.dart';
+import 'package:flutter_app/shared/preferences.dart';
 import 'package:flutter_app/themes/default_theme.dart';
 
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  Preferences.init();
   runApp(const MyApp());
 }
 
@@ -34,6 +37,7 @@ class MyApp extends StatelessWidget{
         'form_page':(context) => const FormPage(),
         'pageview':(context) => PageViewPage(),
         'slivers':(context) => const SliversPage(),        
+        'profile':(context) => const ProfilePage(),        
       },
     );    
   }  

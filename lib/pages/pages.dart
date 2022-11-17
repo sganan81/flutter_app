@@ -1,5 +1,7 @@
 
 
+export 'package:flutter_app/pages/profile_page.dart';
+
 export 'package:flutter_app/pages/slivers_page.dart';
 
 export 'package:flutter_app/pages/pageview_page.dart';
