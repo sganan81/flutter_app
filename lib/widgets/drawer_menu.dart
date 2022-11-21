@@ -6,6 +6,7 @@ class DrawerMenu extends StatelessWidget {
   final List<Map<String,String>> _menuItems = <Map<String,String>>[
     {'route':'home','title':'Homess','subtitle':'Home + counter app'},
     {'route':'counter','title':'Counter','subtitle':''},
+    {'route':'counter2','title':'Counter Fx','subtitle':''},
     {'route':'design','title':'Diseño','subtitle':''},
     {'route':'listview','title':'ListView','subtitle':''},
     {'route':'listviewbuilder','title':'ListView Builder','subtitle':''},
@@ -18,6 +19,7 @@ class DrawerMenu extends StatelessWidget {
     {'route':'slivers','title':'Slivers','subtitle':''},
     {'route':'pageview','title':'Pagevie','subtitle':''},
     {'route':'profile','title':'Profile','subtitle':'shared_prefrences'},
+    {'route':'demo_provider','title':'Demo Provider','subtitle':''},
 
   ];
 

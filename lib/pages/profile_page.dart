@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/providers/theme_provider.dart';
 import 'package:flutter_app/shared/preferences.dart';
+import 'package:provider/provider.dart';
 
 class ProfilePage extends StatelessWidget {
    
@@ -20,7 +22,7 @@ class ProfilePage extends StatelessWidget {
         child: Column(
            children: [
             HeaderProfile(size: size),          
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(15.0),
               child: BodyProfile(),
             ),
@@ -31,19 +33,15 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-class BodyProfile extends StatefulWidget {
+class BodyProfile extends StatelessWidget {
   const BodyProfile({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<BodyProfile> createState() => _BodyProfileState();
-}
-
-class _BodyProfileState extends State<BodyProfile> {
-  @override
   Widget build(BuildContext context) {
-    
+    final temaActual = Provider.of<ThemeProvider>(context, listen: true);  
+
     return Column(
             children: [
               TextFormField(
@@ -57,7 +55,7 @@ class _BodyProfileState extends State<BodyProfile> {
                 keyboardType: TextInputType.emailAddress,
                 decoration: decorationInputs(icon:Icons.email, helperText: 'Ej:name@dominio.com'),
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               TextFormField(     
                 onChanged: (value) {                  
                   Preferences.nombre = value;
@@ -71,9 +69,8 @@ class _BodyProfileState extends State<BodyProfile> {
                 title: const Text('Dark Mode'),
                 value: Preferences.darkmode, 
                 onChanged: (value) {
-                  setState(() {                    
-                    Preferences.darkmode = value;
-                  });
+                  Preferences.darkmode = value;
+                  (value) ? temaActual.setDark():  temaActual.setLight();
                 },
               )    
             ],

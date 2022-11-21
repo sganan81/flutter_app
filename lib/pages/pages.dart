@@ -1,5 +1,9 @@
 
 
+export 'package:flutter_app/pages/demo_provider_page.dart';
+
+export 'package:flutter_app/pages/counter_page2.dart';
+
 export 'package:flutter_app/pages/profile_page.dart';
 
 export 'package:flutter_app/pages/slivers_page.dart';
