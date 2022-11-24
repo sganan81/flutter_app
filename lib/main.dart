@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/clima_page.dart';
 import 'package:flutter_app/pages/pages.dart';
-import 'package:flutter_app/providers/theme_provider.dart';
+import 'package:flutter_app/providers/providers.dart';
 import 'package:flutter_app/shared/preferences.dart';
-import 'package:flutter_app/themes/default_theme.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 
 
-void main() async{
+Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Preferences.init();  //valores guardados en el disco de nuestro movil.
+  await dotenv.load();
+  await Preferences.init();  //valores guardados en el disco de nuestro movil.  
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider<ThemeProvider>(create: (context) => ThemeProvider(isDarkMode: Preferences.darkmode) ),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     )    
   );
 }
 
 class MyApp extends StatelessWidget{
-  MyApp({super.key});
+  const MyApp({super.key});
   
  
   @override
@@ -49,7 +51,10 @@ class MyApp extends StatelessWidget{
         'pageview':(context) => PageViewPage(),
         'slivers':(context) => const SliversPage(),        
         'profile':(context) => const ProfilePage(),        
-        'demo_provider':(context) => DemoProvider(),        
+        'demo_provider':(context) => const DemoProvider(),  
+        'photo_provider':(context) => const PhotosPage(),  
+        'clima_provider':(context) => const ClimaPage(),  
+              
       },
     );    
   }  

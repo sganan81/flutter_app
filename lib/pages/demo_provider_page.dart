@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/themes/default_theme.dart';
 import 'package:flutter_app/widgets/drawer_menu.dart';
 import 'package:provider/provider.dart';
 
 class DemoProvider extends StatelessWidget {
    
-  DemoProvider({super.key});
+  const DemoProvider({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +19,10 @@ class DemoProvider extends StatelessWidget {
           elevation: 10,        
         ),
         drawer: DrawerMenu(),
-        body: Center(
+        body: const Center(
            child: Text('Demo Provider'),
         ),         
-        bottomNavigationBar: ControlNavigation()
+        bottomNavigationBar: const ControlNavigation()
       ),
     );
   }
@@ -33,7 +32,7 @@ class DemoProvider extends StatelessWidget {
 class ControlNavigation extends StatelessWidget {
 
 
-  ControlNavigation({super.key});
+  const ControlNavigation({super.key});
 
   
 

@@ -20,6 +20,8 @@ class DrawerMenu extends StatelessWidget {
     {'route':'pageview','title':'Pagevie','subtitle':''},
     {'route':'profile','title':'Profile','subtitle':'shared_prefrences'},
     {'route':'demo_provider','title':'Demo Provider','subtitle':''},
+    {'route':'photo_provider','title':'Photo Provider','subtitle':'http,dotenv,quicktype'},
+    {'route':'clima_provider','title':'Clima','subtitle':'http,dotenv,quicktype'},
 
   ];
 

@@ -1,5 +1,7 @@
 
 
+export 'package:flutter_app/pages/photos_page.dart';
+
 export 'package:flutter_app/pages/demo_provider_page.dart';
 
 export 'package:flutter_app/pages/counter_page2.dart';
