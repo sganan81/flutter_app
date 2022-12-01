@@ -22,6 +22,7 @@ class DrawerMenu extends StatelessWidget {
     {'route':'demo_provider','title':'Demo Provider','subtitle':''},
     {'route':'photo_provider','title':'Photo Provider','subtitle':'http,dotenv,quicktype'},
     {'route':'clima_provider','title':'Clima','subtitle':'http,dotenv,quicktype'},
+    {'route':'future_builder','title':'Future Builder','subtitle':'unsplash'},
 
   ];
 
@@ -49,7 +50,9 @@ class DrawerMenu extends StatelessWidget {
                   subtitle: Text(item['subtitle'] ?? '', style: const TextStyle(fontFamily: 'RobotoMono', fontSize: 11)),
                   leading: const Icon(Icons.arrow_right ),
                   onTap: () {
-                    Navigator.pushReplacementNamed(context, item['route']!);
+                    //Navigator.pop(context);
+                    //Navigator.pushReplacementNamed(context, item['route']!);
+                    Navigator.pushNamed(context, item['route']!);
                   },
               )
             ).toList()

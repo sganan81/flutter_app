@@ -49,7 +49,7 @@ class ListaClima extends StatelessWidget {
       separatorBuilder: (context, index) => const Divider(height: 5,),
       itemBuilder: (context, index) {
         //listaclima.photos[index].urls.small
-        return ListTile(
+        return ListTile(      
           title: Text('Min: ${listaclima.clima[index].main.tempMin.toString()}  Max: ${listaclima.clima[index].main.tempMax.toString()}', style: const TextStyle(color: Colors.black),),
           subtitle: Text(listaclima.clima[index].dtTxt),
         );

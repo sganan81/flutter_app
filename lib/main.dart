@@ -6,11 +6,17 @@ import 'package:flutter_app/shared/preferences.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
-  await Preferences.init();  //valores guardados en el disco de nuestro movil.  
+  await Preferences.init();
+  await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+  );  //valores guardados en el disco de nuestro movil.  
 
   runApp(
     MultiProvider(
@@ -33,7 +39,7 @@ class MyApp extends StatelessWidget{
       title: 'MyApp',      
       debugShowCheckedModeBanner: false,
       theme:  Provider.of<ThemeProvider>(context).temaActual,      
-      initialRoute: 'home',
+      initialRoute: 'login',
       routes: {
         'home': (context) => const HomePage(),
         'design': (context) => const DesignPage(),
@@ -54,6 +60,9 @@ class MyApp extends StatelessWidget{
         'demo_provider':(context) => const DemoProvider(),  
         'photo_provider':(context) => const PhotosPage(),  
         'clima_provider':(context) => const ClimaPage(),  
+        'login':(context) => const LoginPage(),  
+        'register':(context) => const RegisterPage(),  
+        'future_builder':(context) => FutureBuilderPage(),  
               
       },
     );    
