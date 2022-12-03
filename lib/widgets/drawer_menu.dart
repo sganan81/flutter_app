@@ -50,7 +50,7 @@ class DrawerMenu extends StatelessWidget {
                   subtitle: Text(item['subtitle'] ?? '', style: const TextStyle(fontFamily: 'RobotoMono', fontSize: 11)),
                   leading: const Icon(Icons.arrow_right ),
                   onTap: () {
-                    //Navigator.pop(context);
+                    Navigator.pop(context);
                     //Navigator.pushReplacementNamed(context, item['route']!);
                     Navigator.pushNamed(context, item['route']!);
                   },

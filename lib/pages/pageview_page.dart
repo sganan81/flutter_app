@@ -18,7 +18,7 @@ class PageViewPage extends StatelessWidget {
         elevation: 0,
         child: const Icon(Icons.arrow_back, ),
         onPressed: () {
-         Navigator.pushReplacementNamed(context, 'home');
+         Navigator.pop(context);
       },),
       body: SizedBox(
         width: double.infinity,

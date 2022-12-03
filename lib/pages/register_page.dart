@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/providers/providers.dart';
+import 'package:flutter_app/services/auth_service.dart';
 import 'package:flutter_app/themes/themes.dart';
 import 'package:flutter_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
@@ -98,9 +99,7 @@ class _RegisterForm extends StatelessWidget {
                 labelText: 'Contraseña',
                 prefixIcon: Icons.lock_outline
               ),
-              onChanged: (value) {
-                
-              },
+              onChanged: ( value ) => registerForm.password = value,
               validator: ( value ) {
 
                   return ( value != null && value.length >= 6 ) 
@@ -123,11 +122,21 @@ class _RegisterForm extends StatelessWidget {
                                 
                 if( !registerForm.isValidForm() ) return;
 
+                final authFirebaseService = Provider.of<AuthFirebaseService>(context, listen: false);
+                
                 registerForm.isLoading = true;
-
-                Navigator.pushReplacementNamed(context, 'home');
-                // TODO: alerta error si credenciales son incorrectas              
+                final String? resultRegister = await authFirebaseService.createUser(registerForm.email, registerForm.password);
+                if (resultRegister == null){
+                  Navigator.pushReplacementNamed(context, 'home');
+                }else{
+                  // TODO: alerta error si credenciales son incorrectas              
+                  print('Error $resultRegister');
+                }
                 registerForm.isLoading = false;                
+
+                
+
+
               },
               child: Container(
                 padding: const EdgeInsets.symmetric( horizontal: 80, vertical: 15),

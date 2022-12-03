@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/clima_page.dart';
 import 'package:flutter_app/pages/pages.dart';
 import 'package:flutter_app/providers/providers.dart';
+import 'package:flutter_app/services/services.dart';
 import 'package:flutter_app/shared/preferences.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,7 @@ Future<void> main() async{
     MultiProvider(
       providers: [
         ChangeNotifierProvider<ThemeProvider>(create: (context) => ThemeProvider(isDarkMode: Preferences.darkmode) ),
+        ChangeNotifierProvider<AuthFirebaseService>(create: (context) => AuthFirebaseService() ),
       ],
       child: const MyApp(),
     )    
@@ -38,7 +40,8 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       title: 'MyApp',      
       debugShowCheckedModeBanner: false,
-      theme:  Provider.of<ThemeProvider>(context).temaActual,      
+      theme:  Provider.of<ThemeProvider>(context).temaActual,   
+      scaffoldMessengerKey: NotificacionesService.message,         
       initialRoute: 'login',
       routes: {
         'home': (context) => const HomePage(),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/pages.dart';
 import 'package:flutter_app/providers/providers.dart';
 import 'package:flutter_app/themes/themes.dart';
 import 'package:flutter_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
+
+import '../services/services.dart';
 
 
 class LoginPage extends StatelessWidget {
@@ -41,7 +44,8 @@ class LoginPage extends StatelessWidget {
                                     color:Colors.white 
                                   ),
                               ),
-                  onPressed: () => Navigator.of(context).pushReplacementNamed('register'),
+                  //onPressed: () => Navigator.of(context).pushReplacementNamed('register'),
+                  onPressed: () => Navigator.of(context).push(_createRoute())
               ),
               const SizedBox( height: 50 ),
             ],
@@ -50,6 +54,25 @@ class LoginPage extends StatelessWidget {
       ),      
     );
   }
+}
+
+
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const RegisterPage(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0);
+      const end = Offset.zero;
+      const curve = Curves.linear;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
 }
 
 
@@ -98,9 +121,7 @@ class _LoginForm extends StatelessWidget {
                 labelText: 'Contraseña',
                 prefixIcon: Icons.lock_outline
               ),
-              onChanged: (value) {
-                
-              },
+              onChanged: ( value ) => loginForm.password = value,
               validator: ( value ) {
 
                   return ( value != null && value.length >= 6 ) 
@@ -124,10 +145,17 @@ class _LoginForm extends StatelessWidget {
                 if( !loginForm.isValidForm() ) return;
 
                 loginForm.isLoading = true;
+                final authFirebaseService = Provider.of<AuthFirebaseService>(context, listen: false);
+                final String? resultLogin = await authFirebaseService.loginUser(loginForm.email, loginForm.password);
+                if (resultLogin == null){
+                  Navigator.pushReplacementNamed(context, 'home');
+                }else{
+                  // TODO: alerta error si credenciales son incorrectas              
+                  print('Error $resultLogin');
+                  NotificacionesService.showSnackBar('Error $resultLogin');
+                }                
+                loginForm.isLoading = false;          
 
-                Navigator.pushReplacementNamed(context, 'home');
-                // TODO: alerta error si credenciales son incorrectas              
-                loginForm.isLoading = false;                
               },
               child: Container(
                 padding: const EdgeInsets.symmetric( horizontal: 80, vertical: 15),
