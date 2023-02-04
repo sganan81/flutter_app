@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       theme:  Provider.of<ThemeProvider>(context).temaActual,   
       scaffoldMessengerKey: NotificacionesService.message,         
-      initialRoute: 'login',
+      initialRoute: 'validate_user',
       routes: {
         'home': (context) => const HomePage(),
         'design': (context) => const DesignPage(),
@@ -66,6 +66,7 @@ class MyApp extends StatelessWidget{
         'login':(context) => const LoginPage(),  
         'register':(context) => const RegisterPage(),  
         'future_builder':(context) => FutureBuilderPage(),  
+        'validate_user':(context) => const ValidateUserPage(),  
               
       },
     );    

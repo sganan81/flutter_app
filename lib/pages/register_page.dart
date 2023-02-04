@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/providers/providers.dart';
 import 'package:flutter_app/services/auth_service.dart';
+import 'package:flutter_app/services/notificaciones_service.dart';
 import 'package:flutter_app/themes/themes.dart';
 import 'package:flutter_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,7 @@ class RegisterPage extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox( height: 10 ),
-                    Text('Registro', style: Theme.of(context).textTheme.headline4 ),
+                    Text('Registro', style: Theme.of(context).textTheme.headlineMedium ),
                     const SizedBox( height: 30 ),    
                     ChangeNotifierProvider(
                       create: ( BuildContext context ) => LoginFormProvider(),
@@ -129,7 +130,8 @@ class _RegisterForm extends StatelessWidget {
                 if (resultRegister == null){
                   Navigator.pushReplacementNamed(context, 'home');
                 }else{
-                  // TODO: alerta error si credenciales son incorrectas              
+                  // TODO: alerta error si credenciales son incorrectas  
+                  NotificacionesService.showSnackBar('Error $resultRegister');            
                   print('Error $resultRegister');
                 }
                 registerForm.isLoading = false;                

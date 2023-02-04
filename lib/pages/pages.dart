@@ -1,3 +1,5 @@
+export 'package:flutter_app/pages/validate_user_page.dart';
+
 export 'package:flutter_app/pages/register_page.dart';
 
 export 'package:flutter_app/pages/card_page.dart';
